@@ -40,3 +40,12 @@ export const subscribeToTicker = (ticker, cb) => {
 export const unsubscribeFromTicker = ticker => {
     tickerHandlers.delete(ticker)
 }
+
+
+export const getPosts = () => {
+    return fetch(`https://jsonplaceholder.typicode.com/posts?_limit=10`).then((res) =>  res.json() )
+};
+
+export const getPostsDetail = (id) =>{
+    return fetch(`https://jsonplaceholder.typicode.com/posts/${id}`).then((res) =>  res.json() )
+}

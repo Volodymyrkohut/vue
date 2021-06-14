@@ -1,25 +1,31 @@
 import {createRouter, createWebHistory} from 'vue-router'
 import Home from "../Home";
-import About from "@/About";
+import Posts from "@/components/Posts/Posts";
 import Detail from "@/Detail";
 import NotFound from "@/NotFound";
 import DetailLayout from "@/DetailLayout";
+import PostDetail from "@/components/Posts/PostDetail";
 
 const routes = [
     {
         path: '/',
         name: 'Home',
         component: Home,
-    },
-    {
-        path: '/about',
-        name: 'About',
-        component: About,
         // beforeEnter: (to, from, next) => {
         //     next()
         // }
         //beforeRouteLeave
         //beforeRouteUpdate
+    },
+    {
+        path: '/posts',
+        name: 'Posts',
+        component: Posts,
+    },
+    {
+        path: '/posts/:id',
+        name: 'PostsDetail',
+        component: PostDetail,
     },
     {
         path: '/detail',
@@ -35,7 +41,7 @@ const routes = [
             // REDIRECT
             {
                 path: '/:pathMatch(.*)*',
-                redirect: About,
+                redirect: Posts,
             }
         ]
     },
